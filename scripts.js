@@ -45,6 +45,8 @@ function movePen(key) {
 }
 
 function colorInCell(cell) {
-    pen = document.querySelector(`[data-cell-number='${cell}'`);
-    pen.style.backgroundColor = "black";
+    if (cell >= 0 && cell < 7500) {
+        pen = document.querySelector(`[data-cell-number='${cell}'`);
+        pen.style.backgroundColor = "black";
+    }
 }
