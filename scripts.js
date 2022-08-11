@@ -1,8 +1,8 @@
 createGrid();
 const grid = document.querySelector("#grid");
-let pen = document.querySelector("[data-cell-number='3750']");
-pen.style.backgroundColor = "black";
+let pen = penRandomStartingPosition();
 window.addEventListener("keydown", () => movePen(window.event.key));
+
 
 function createGrid() {
     const grid = document.querySelector("#grid");
@@ -16,6 +16,15 @@ function createGrid() {
         grid.appendChild(cell);
     }
 }
+
+//sets a random cell as the starting position and colors it in
+function penRandomStartingPosition() {
+    let startingPosition = Math.floor(Math.random() * 7499);
+    let pen = document.querySelector(`[data-cell-number='${startingPosition}']`);
+    pen.style.backgroundColor = "black";
+    return pen;
+}
+
 
 function movePen(key) {
     let newPenPosition;
