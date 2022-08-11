@@ -1,0 +1,11 @@
+#grid {
+    display: grid;
+    grid-template-columns: repeat(100, 1fr);
+    width: 50vw;
+    height: 37.5vw;
+    border: thin solid black;
+}
+
+.cell {
+    border: thin solid black;
+}
