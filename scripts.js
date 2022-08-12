@@ -72,8 +72,8 @@ function userControls(key) {
 }
 
 
-function colorInCell(cell) {
-    let pen = document.querySelector(`[data-cell-number='${cell}'`);
+function colorInCell(cellNumber) {
+    let pen = document.querySelector(`[data-cell-number='${cellNumber}'`);
     pen.style.backgroundColor = "black";
 }
 
