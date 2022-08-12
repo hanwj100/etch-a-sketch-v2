@@ -1,8 +1,13 @@
-createGrid();
-let penPosition;
 
-penRandomStartingPosition();
-window.addEventListener("keydown", () => movePen(window.event.key));
+let penPosition = null;
+main();
+
+
+function main() {
+    createGrid();
+    penRandomStartingPosition();
+    window.addEventListener("keydown", () => movePen(window.event.key));
+}
 
 
 function createGrid() {
