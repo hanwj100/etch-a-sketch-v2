@@ -1,6 +1,9 @@
 createGrid();
 const grid = document.querySelector("#grid");
-let pen = penRandomStartingPosition();
+
+let penPosition;
+
+penRandomStartingPosition();
 window.addEventListener("keydown", () => movePen(window.event.key));
 
 
@@ -22,32 +25,39 @@ function penRandomStartingPosition() {
     let startingPosition = Math.floor(Math.random() * 7499);
     let pen = document.querySelector(`[data-cell-number='${startingPosition}']`);
     pen.style.backgroundColor = "black";
-    return pen;
+    penPosition = startingPosition;
 }
 
 
 function movePen(key) {
-    let newPenPosition;
     switch (key) {
         case "h":
         case "ArrowLeft":
-            newPenPosition = pen.dataset.cellNumber - 1;
-            colorInCell(newPenPosition);
+            if (penPosition % 100 !== 0) {
+                penPosition -= 1;
+                colorInCell(penPosition);
+            }
             break;
         case "j":
         case "ArrowDown":
-            newPenPosition = Number(pen.dataset.cellNumber) + 100;
-            colorInCell(newPenPosition);
+            if (penPosition + 100 < 7500) {
+                penPosition += 100;
+                colorInCell(penPosition);
+            }
             break;
         case "k":
         case "ArrowUp":
-            newPenPosition = pen.dataset.cellNumber - 100;
-            colorInCell(newPenPosition);
+            if (penPosition - 100 >= 0) {
+                penPosition -= 100;
+                colorInCell(penPosition);
+            }
             break;
         case "l":
         case "ArrowRight":
-            newPenPosition = Number(pen.dataset.cellNumber) + 1;
-            colorInCell(newPenPosition);
+            if (penPosition % 100 !== 99) {
+                penPosition += 1;
+                colorInCell(penPosition);
+            }
             break;
     };
 
@@ -55,7 +65,7 @@ function movePen(key) {
 
 function colorInCell(cell) {
     if (cell >= 0 && cell < 7500) {
-        pen = document.querySelector(`[data-cell-number='${cell}'`);
+        let pen = document.querySelector(`[data-cell-number='${cell}'`);
         pen.style.backgroundColor = "black";
     }
 }
