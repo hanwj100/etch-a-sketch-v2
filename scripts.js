@@ -83,8 +83,9 @@ function colorInCell(cell) {
 
 
 function resetGrid() {
+    let cells = document.querySelectorAll("[data-cell-number]");
     for (let i = 0; i < 7500; i++) {
-        let cell = document.querySelector(`[data-cell-number='${i}']`);
+        let cell = cells[i];
         if (cell.style.backgroundColor == "black") {
             cell.style.backgroundColor = "white";
         }
