@@ -23,6 +23,7 @@ function createGrid() {
     }
 }
 
+
 //sets a random cell as the starting position and colors it in
 function penRandomStartingPosition() {
     let startingPosition = Math.floor(Math.random() * 7499);
@@ -41,6 +42,7 @@ function movePen(key) {
                 colorInCell(penPosition);
             }
             break;
+
         case "j":
         case "ArrowDown":
             if (penPosition + 100 < 7500) {
@@ -48,6 +50,7 @@ function movePen(key) {
                 colorInCell(penPosition);
             }
             break;
+
         case "k":
         case "ArrowUp":
             if (penPosition - 100 >= 0) {
@@ -55,6 +58,7 @@ function movePen(key) {
                 colorInCell(penPosition);
             }
             break;
+
         case "l":
         case "ArrowRight":
             if (penPosition % 100 !== 99) {
@@ -62,13 +66,27 @@ function movePen(key) {
                 colorInCell(penPosition);
             }
             break;
+
+        case " ":
+            resetGrid();
     };
 
 }
+
 
 function colorInCell(cell) {
     if (cell >= 0 && cell < 7500) {
         let pen = document.querySelector(`[data-cell-number='${cell}'`);
         pen.style.backgroundColor = "black";
+    }
+}
+
+
+function resetGrid() {
+    for (let i = 0; i < 7500; i++) {
+        let cell = document.querySelector(`[data-cell-number='${i}']`);
+        if (cell.style.backgroundColor == "black") {
+            cell.style.backgroundColor = "white";
+        }
     }
 }
