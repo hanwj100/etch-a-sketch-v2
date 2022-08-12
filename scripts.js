@@ -75,10 +75,8 @@ function movePen(key) {
 
 
 function colorInCell(cell) {
-    if (cell >= 0 && cell < 7500) {
-        let pen = document.querySelector(`[data-cell-number='${cell}'`);
-        pen.style.backgroundColor = "black";
-    }
+    let pen = document.querySelector(`[data-cell-number='${cell}'`);
+    pen.style.backgroundColor = "black";
 }
 
 
