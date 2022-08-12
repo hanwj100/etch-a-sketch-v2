@@ -1,6 +1,4 @@
 createGrid();
-const grid = document.querySelector("#grid");
-
 let penPosition;
 
 penRandomStartingPosition();
