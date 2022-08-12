@@ -6,7 +6,7 @@ main();
 function main() {
     createGrid();
     penRandomStartingPosition();
-    window.addEventListener("keydown", () => movePen(window.event.key));
+    window.addEventListener("keydown", () => userControls(window.event.key));
 }
 
 
@@ -32,7 +32,7 @@ function penRandomStartingPosition() {
 }
 
 
-function movePen(key) {
+function userControls(key) {
     switch (key) {
         case "h":
         case "ArrowLeft":
@@ -69,7 +69,6 @@ function movePen(key) {
         case " ":
             resetGrid();
     };
-
 }
 
 
