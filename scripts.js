@@ -1,5 +1,5 @@
 
-let penPosition = null;
+let currentPenPosition = null;
 main();
 
 
@@ -28,7 +28,7 @@ function createGrid() {
 function penRandomStartingPosition() {
     let startingPosition = Math.floor(Math.random() * 7499);
     colorInCell(startingPosition);
-    penPosition = startingPosition;
+    currentPenPosition = startingPosition;
 }
 
 
@@ -36,33 +36,33 @@ function userControls(key) {
     switch (key) {
         case "h":
         case "ArrowLeft":
-            if (penPosition % 100 !== 0) {
-                penPosition -= 1;
-                colorInCell(penPosition);
+            if (currentPenPosition % 100 !== 0) {
+                currentPenPosition -= 1;
+                colorInCell(currentPenPosition);
             }
             break;
 
         case "j":
         case "ArrowDown":
-            if (penPosition + 100 < 7500) {
-                penPosition += 100;
-                colorInCell(penPosition);
+            if (currentPenPosition + 100 < 7500) {
+                currentPenPosition += 100;
+                colorInCell(currentPenPosition);
             }
             break;
 
         case "k":
         case "ArrowUp":
-            if (penPosition - 100 >= 0) {
-                penPosition -= 100;
-                colorInCell(penPosition);
+            if (currentPenPosition - 100 >= 0) {
+                currentPenPosition -= 100;
+                colorInCell(currentPenPosition);
             }
             break;
 
         case "l":
         case "ArrowRight":
-            if (penPosition % 100 !== 99) {
-                penPosition += 1;
-                colorInCell(penPosition);
+            if (currentPenPosition % 100 !== 99) {
+                currentPenPosition += 1;
+                colorInCell(currentPenPosition);
             }
             break;
 
