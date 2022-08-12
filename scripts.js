@@ -27,8 +27,7 @@ function createGrid() {
 //sets a random cell as the starting position and colors it in
 function penRandomStartingPosition() {
     let startingPosition = Math.floor(Math.random() * 7499);
-    let pen = document.querySelector(`[data-cell-number='${startingPosition}']`);
-    pen.style.backgroundColor = "black";
+    colorInCell(startingPosition);
     penPosition = startingPosition;
 }
 
