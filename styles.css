@@ -7,5 +7,6 @@
 }
 
 .cell {
-    border: thin solid black;
+    border: thin solid none;
+    background-color: #D8D8D8;
 }

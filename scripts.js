@@ -1,7 +1,11 @@
+const COLOR_CODES = {
+    GRAY: "#707070",
+    LIGHT_GRAY: "#D8D8D8"
+
+}
 
 let currentPenPosition = null;
 main();
-
 
 function main() {
     createGrid();
@@ -74,7 +78,7 @@ function userControls(key) {
 
 function colorInCell(cellNumber) {
     let pen = document.querySelector(`[data-cell-number='${cellNumber}'`);
-    pen.style.backgroundColor = "black";
+    pen.style.backgroundColor = COLOR_CODES.GRAY;
 }
 
 
@@ -82,8 +86,6 @@ function resetGrid() {
     let cells = document.querySelectorAll("[data-cell-number]");
     for (let i = 0; i < 7500; i++) {
         let cell = cells[i];
-        if (cell.style.backgroundColor == "black") {
-            cell.style.backgroundColor = "white";
-        }
+        cell.style.backgroundColor = COLOR_CODES.LIGHT_GRAY;
     }
 }
