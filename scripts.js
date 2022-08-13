@@ -3,9 +3,12 @@ const COLOR_CODES = {
     LIGHT_GRAY: "#D8D8D8"
 
 }
+const GRID_WIDTH = 100;
+const NUM_CELLS = GRID_WIDTH * (GRID_WIDTH * 0.75);
 
 let currentPenPosition = null;
 main();
+
 
 function main() {
     createGrid();
@@ -17,11 +20,11 @@ function main() {
 function createGrid() {
     const grid = document.querySelector("#grid");
 
-    for (let i = 0; i < 7500; i++) {
+    for (let i = 0; i < NUM_CELLS; i++) {
         const cell = document.createElement("div");
         cell.className = "cell";
         cell.setAttribute("data-cell-number", `${i}`);
-        cell.style.padding = `${grid.style.width / 100}`;
+        cell.style.padding = `${grid.style.width / GRID_WIDTH}`;
 
         grid.appendChild(cell);
     }
@@ -30,7 +33,7 @@ function createGrid() {
 
 //sets a random cell as the starting position and colors it in
 function penRandomStartingPosition() {
-    let startingPosition = Math.floor(Math.random() * 7499);
+    let startingPosition = Math.floor(Math.random() * (NUM_CELLS - 1));
     colorInCell(startingPosition);
     currentPenPosition = startingPosition;
 }
@@ -40,7 +43,7 @@ function userControls(key) {
     switch (key) {
         case "h":
         case "ArrowLeft":
-            if (currentPenPosition % 100 !== 0) {
+            if (currentPenPosition % GRID_WIDTH !== 0) {
                 currentPenPosition -= 1;
                 colorInCell(currentPenPosition);
             }
@@ -48,23 +51,23 @@ function userControls(key) {
 
         case "j":
         case "ArrowDown":
-            if (currentPenPosition + 100 < 7500) {
-                currentPenPosition += 100;
+            if (currentPenPosition + GRID_WIDTH < NUM_CELLS) {
+                currentPenPosition += GRID_WIDTH;
                 colorInCell(currentPenPosition);
             }
             break;
 
         case "k":
         case "ArrowUp":
-            if (currentPenPosition - 100 >= 0) {
-                currentPenPosition -= 100;
+            if (currentPenPosition - GRID_WIDTH >= 0) {
+                currentPenPosition -= GRID_WIDTH;
                 colorInCell(currentPenPosition);
             }
             break;
 
         case "l":
         case "ArrowRight":
-            if (currentPenPosition % 100 !== 99) {
+            if (currentPenPosition % GRID_WIDTH !== 99) {
                 currentPenPosition += 1;
                 colorInCell(currentPenPosition);
             }
@@ -84,7 +87,7 @@ function colorInCell(cellNumber) {
 
 function resetGrid() {
     let cells = document.querySelectorAll("[data-cell-number]");
-    for (let i = 0; i < 7500; i++) {
+    for (let i = 0; i < NUM_CELLS; i++) {
         let cell = cells[i];
         cell.style.backgroundColor = COLOR_CODES.LIGHT_GRAY;
     }
