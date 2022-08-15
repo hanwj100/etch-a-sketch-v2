@@ -1,8 +1,27 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 #etch-a-sketch {
-    padding: 7vw;
     border: thin solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 59vw;
+}
+
+#logo {
+    height: 7vw;
+}
+
+#screen {
     display: inline-block;
+}
+
+#knobs {
+    height: 7vw;
 }
 
 #grid {
