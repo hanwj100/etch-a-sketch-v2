@@ -41,39 +41,40 @@ function penRandomStartingPosition() {
 
 function userControls(key) {
     switch (key) {
-        case "h":
-        case "ArrowLeft":
+        //move left
+        case "d":
             if (currentPenPosition % GRID_WIDTH !== 0) {
                 currentPenPosition -= 1;
                 colorInCell(currentPenPosition);
             }
             break;
 
-        case "j":
-        case "ArrowDown":
-            if (currentPenPosition + GRID_WIDTH < NUM_CELLS) {
-                currentPenPosition += GRID_WIDTH;
-                colorInCell(currentPenPosition);
-            }
-            break;
-
-        case "k":
-        case "ArrowUp":
-            if (currentPenPosition - GRID_WIDTH >= 0) {
-                currentPenPosition -= GRID_WIDTH;
-                colorInCell(currentPenPosition);
-            }
-            break;
-
-        case "l":
-        case "ArrowRight":
+        //move right
+        case "f":
             if (currentPenPosition % GRID_WIDTH !== 99) {
                 currentPenPosition += 1;
                 colorInCell(currentPenPosition);
             }
             break;
 
-        case " ":
+        //move down
+        case "j":
+            if (currentPenPosition + GRID_WIDTH < NUM_CELLS) {
+                currentPenPosition += GRID_WIDTH;
+                colorInCell(currentPenPosition);
+            }
+            break;
+
+        //move up
+        case "k":
+            if (currentPenPosition - GRID_WIDTH >= 0) {
+                currentPenPosition -= GRID_WIDTH;
+                colorInCell(currentPenPosition);
+            }
+            break;
+
+
+        case "Backspace":
             resetGrid();
     };
 }
